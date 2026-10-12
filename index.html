@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101018">
+    <meta name="description" content="Una felicitación de cumpleaños para un hermano elegido, con todo el espíritu de Demon Slayer.">
+    <title>Feliz cumpleaños, hermano | Kimetsu no Yaiba</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            --ink: #101018;
+            --paper: #f5ead7;
+            --muted: #b9b2ae;
+            --red: #ee5b42;
+            --gold: #f4c16e;
+            --green: #a4c5a5;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            min-width: 320px;
+            margin: 0;
+            overflow-x: hidden;
+            background: var(--ink);
+            color: var(--paper);
+            font-family: "DM Sans", sans-serif;
+        }
+
+        button { font: inherit; }
+
+        .page {
+            position: relative;
+            isolation: isolate;
+            min-height: 100svh;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 77% 35%, rgb(180 73 49 / 13%), transparent 35%),
+                linear-gradient(135deg, #101018 0%, #171820 52%, #111218 100%);
+        }
+
+        .page::before {
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            background-image: radial-gradient(rgb(255 255 255 / 16%) .65px, transparent .65px);
+            background-size: 5px 5px;
+            content: "";
+            opacity: .11;
+            pointer-events: none;
+        }
+
+        .topbar, main, footer {
+            width: min(1160px, calc(100% - 64px));
+            margin-inline: auto;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 88px;
+            border-bottom: 1px solid rgb(245 234 215 / 12%);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--paper);
+            font-size: .76rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .brand-mark {
+            display: grid;
+            width: 34px;
+            height: 34px;
+            place-items: center;
+            border: 1px solid rgb(244 193 110 / 70%);
+            border-radius: 50%;
+            color: var(--gold);
+            font-family: "Oswald", sans-serif;
+            font-size: .9rem;
+        }
+
+        .edition {
+            color: var(--muted);
+            font-size: .68rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            display: grid;
+            min-height: min(760px, calc(100svh - 88px));
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 28px;
+            padding-block: 66px 80px;
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 2;
+            padding-block: 20px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 23px;
+            color: var(--gold);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 30px;
+            height: 1px;
+            background: var(--red);
+            content: "";
+        }
+
+        h1, h2, p { margin-top: 0; }
+
+        h1 {
+            max-width: 680px;
+            margin-bottom: 20px;
+            font-family: "Oswald", sans-serif;
+            font-size: clamp(3.8rem, 8.4vw, 7.35rem);
+            font-weight: 600;
+            letter-spacing: -.035em;
+            line-height: .94;
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            display: block;
+            color: var(--red);
+        }
+
+        .hero-lead {
+            max-width: 475px;
+            margin-bottom: 31px;
+            color: #d1cbc4;
+            font-size: clamp(1rem, 1.4vw, 1.13rem);
+            line-height: 1.75;
+        }
+
+        .hero-lead strong { color: var(--paper); }
+
+        .cta {
+            display: inline-flex;
+            min-height: 54px;
+            align-items: center;
+            justify-content: center;
+            gap: 13px;
+            padding: 0 23px;
+            border: 0;
+            border-radius: 3px;
+            background: var(--red);
+            box-shadow: 0 8px 30px rgb(238 91 66 / 20%);
+            color: #fff9f0;
+            cursor: pointer;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+            background: #fa7055;
+            box-shadow: 0 12px 34px rgb(238 91 66 / 31%);
+        }
+
+        .cta:focus-visible, .seal:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        .cta-arrow { font-size: 1.1rem; transition: transform .2s ease; }
+        .cta:hover .cta-arrow { transform: translateX(4px); }
+
+        .hero-art {
+            position: relative;
+            display: grid;
+            min-height: 490px;
+            place-items: center;
+        }
+
+        .sun {
+            position: absolute;
+            top: 12%;
+            left: 22%;
+            width: clamp(210px, 27vw, 330px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 38% 36%, #ffd794 0%, #ef7657 48%, #ae3c39 73%, #542638 100%);
+            box-shadow: 0 0 115px rgb(238 91 66 / 20%), inset -18px -14px 35px rgb(65 24 37 / 25%);
+        }
+
+        .sun::after {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: repeating-linear-gradient(0deg, transparent 0 11px, rgb(16 16 24 / 82%) 12px 17px);
+            content: "";
+            opacity: .38;
+        }
+
+        .circle {
+            position: absolute;
+            top: 3%;
+            left: 8%;
+            width: 88%;
+            aspect-ratio: 1;
+            border: 1px solid rgb(244 193 110 / 20%);
+            border-radius: 50%;
+        }
+
+        .circle::before, .circle::after {
+            position: absolute;
+            border: 1px solid rgb(245 234 215 / 10%);
+            border-radius: 50%;
+            content: "";
+        }
+
+        .circle::before { inset: 6%; }
+        .circle::after { inset: 13%; border-style: dashed; }
+
+        .sword {
+            position: absolute;
+            z-index: 1;
+            top: 7%;
+            left: 51%;
+            width: 13px;
+            height: 92%;
+            transform: rotate(36deg);
+            transform-origin: center;
+        }
+
+        .blade {
+            position: absolute;
+            top: 0;
+            left: 3px;
+            width: 7px;
+            height: 74%;
+            border: 1px solid rgb(255 255 255 / 70%);
+            background: linear-gradient(90deg, #bbd3cc 0%, #f6fff3 47%, #95bdb8 100%);
+            clip-path: polygon(50% 0, 100% 5%, 67% 100%, 50% 96%, 33% 100%, 0 5%);
+            filter: drop-shadow(0 0 11px rgb(178 235 219 / 48%));
+        }
+
+        .guard {
+            position: absolute;
+            top: 73%;
+            left: -9px;
+            width: 31px;
+            height: 18px;
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgb(244 193 110 / 40%);
+        }
+
+        .grip {
+            position: absolute;
+            top: 76%;
+            left: 1px;
+            width: 11px;
+            height: 19%;
+            border: 1px solid #e5c2a1;
+            background: repeating-linear-gradient(0deg, #3b2932 0 4px, #e5c2a1 5px 7px);
+        }
+
+        .pommel {
+            position: absolute;
+            top: 94%;
+            left: 0;
+            width: 13px;
+            height: 13px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+        }
+
+        .art-caption {
+            position: absolute;
+            right: 1%;
+            bottom: 6%;
+            color: rgb(245 234 215 / 62%);
+            font-size: .65rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+        }
+
+        .kanji {
+            position: absolute;
+            right: 13%;
+            bottom: 20%;
+            color: rgb(245 234 215 / 11%);
+            font-family: serif;
+            font-size: clamp(4rem, 8vw, 6.7rem);
+            line-height: 1;
+            writing-mode: vertical-rl;
+        }
+
+        .petal {
+            position: absolute;
+            z-index: 2;
+            width: 13px;
+            height: 20px;
+            border-radius: 100% 0 100% 0;
+            background: linear-gradient(135deg, #ffc2b3, #bb5362);
+            opacity: .85;
+            animation: drift 8s ease-in-out infinite;
+        }
+
+        .petal-one { top: 17%; right: 14%; }
+        .petal-two { top: 65%; left: 10%; animation-delay: -3s; transform: rotate(80deg) scale(.7); }
+        .petal-three { top: 33%; left: 5%; animation-delay: -5s; transform: rotate(35deg) scale(.55); }
+        .petal-four { right: 24%; bottom: 14%; animation-delay: -1s; transform: rotate(105deg) scale(.8); }
+
+        .friendship {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            padding: 30px 0 84px;
+            border-top: 1px solid rgb(245 234 215 / 13%);
+        }
+
+        .section-label {
+            margin-bottom: 14px;
+            color: var(--gold);
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+        }
+
+        .friendship h2 {
+            max-width: 450px;
+            margin-bottom: 12px;
+            font-family: "Oswald", sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 500;
+            line-height: 1.08;
+            text-transform: uppercase;
+        }
+
+        .friendship h2 span { color: var(--green); }
+
+        .friendship p {
+            max-width: 470px;
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: .93rem;
+            line-height: 1.8;
+        }
+
+        .quote {
+            align-self: center;
+            padding: 8px 0 8px 25px;
+            border-left: 2px solid var(--red);
+            color: #ded5ca;
+            font-family: Georgia, serif;
+            font-size: 1.12rem;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .quote cite {
+            display: block;
+            margin-top: 13px;
+            color: var(--gold);
+            font-family: "DM Sans", sans-serif;
+            font-size: .66rem;
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 68px;
+            border-top: 1px solid rgb(245 234 215 / 12%);
+            color: #8f8987;
+            font-size: .67rem;
+            letter-spacing: .08em;
+        }
+
+        .footer-mark { color: var(--red); }
+
+        .modal {
+            position: fixed;
+            z-index: 5;
+            inset: 0;
+            display: grid;
+            overflow-y: auto;
+            place-items: center;
+            padding: 24px;
+            background: rgb(8 9 14 / 82%);
+            opacity: 0;
+            transition: opacity .25s ease;
+            backdrop-filter: blur(9px);
+        }
+
+        .modal[hidden] { display: none; }
+        .modal.is-open { opacity: 1; }
+
+        .letter {
+            position: relative;
+            width: min(570px, 100%);
+            padding: clamp(30px, 6vw, 54px);
+            border: 1px solid rgb(244 193 110 / 44%);
+            background:
+                radial-gradient(ellipse at 100% 0%, rgb(238 91 66 / 13%), transparent 40%),
+                #171820;
+            box-shadow: 0 28px 100px rgb(0 0 0 / 55%);
+            transform: translateY(12px) scale(.98);
+            transition: transform .25s ease;
+        }
+
+        .modal.is-open .letter { transform: translateY(0) scale(1); }
+
+        .seal {
+            position: absolute;
+            top: 17px;
+            right: 17px;
+            display: grid;
+            width: 38px;
+            height: 38px;
+            place-items: center;
+            border: 1px solid rgb(245 234 215 / 24%);
+            border-radius: 50%;
+            background: transparent;
+            color: var(--paper);
+            cursor: pointer;
+            font-size: 1.25rem;
+        }
+
+        .letter .eyebrow { margin-bottom: 14px; font-size: .64rem; }
+
+        .letter h2 {
+            margin-bottom: 21px;
+            font-family: "Oswald", sans-serif;
+            font-size: clamp(2.1rem, 6vw, 3.4rem);
+            font-weight: 600;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .letter-copy {
+            color: #d0c9c2;
+            font-size: .98rem;
+            line-height: 1.85;
+        }
+
+        .letter-copy strong { color: var(--paper); }
+
+        .letter-signature {
+            margin: 26px 0 0;
+            color: var(--gold);
+            font-family: Georgia, serif;
+            font-size: 1.15rem;
+            font-style: italic;
+        }
+
+        .confetti {
+            position: fixed;
+            z-index: 10;
+            top: -16px;
+            width: 9px;
+            height: 13px;
+            pointer-events: none;
+            animation: fall var(--fall-duration, 3s) linear forwards;
+        }
+
+        @keyframes drift {
+            0%, 100% { translate: 0 0; rotate: 0deg; }
+            50% { translate: 17px 28px; rotate: 130deg; }
+        }
+
+        @keyframes fall {
+            to { transform: translate3d(var(--sway, 20px), 110vh, 0) rotate(720deg); opacity: .1; }
+        }
+
+        @media (max-width: 760px) {
+            .topbar, main, footer { width: min(100% - 40px, 540px); }
+            .topbar { min-height: 72px; }
+            .edition { max-width: 128px; text-align: right; line-height: 1.5; }
+            .hero {
+                min-height: auto;
+                grid-template-columns: 1fr;
+                gap: 0;
+                padding-block: 62px 49px;
+            }
+            .hero-copy { padding: 0; }
+            h1 { max-width: 530px; font-size: clamp(3.65rem, 15vw, 6.4rem); }
+            .hero-lead { max-width: 450px; }
+            .hero-art { min-height: min(100vw, 390px); margin-top: -3px; }
+            .sun { top: 9%; left: 24%; width: min(62vw, 265px); }
+            .circle { top: 0; left: 9%; width: 82%; }
+            .sword { top: 0; left: 51%; height: 96%; }
+            .friendship { grid-template-columns: 1fr; gap: 29px; padding: 28px 0 58px; }
+            .quote { max-width: 470px; }
+        }
+
+        @media (max-width: 420px) {
+            .topbar, main, footer { width: calc(100% - 34px); }
+            .brand { gap: 9px; font-size: .67rem; }
+            .brand-mark { width: 31px; height: 31px; }
+            .edition { max-width: 105px; font-size: .58rem; }
+            .hero { padding-top: 50px; }
+            .hero-art { min-height: 320px; }
+            footer { align-items: flex-start; flex-direction: column; justify-content: center; gap: 6px; padding-block: 14px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="topbar">
+            <a class="brand" href="#" aria-label="Inicio, una aventura épica">
+                <span class="brand-mark" aria-hidden="true">絆</span>
+                <span>Una aventura épica</span>
+            </a>
+            <span class="edition">Edición especial · Tu cumpleaños</span>
+        </header>
+
+        <main>
+            <section class="hero" aria-labelledby="main-title">
+                <div class="hero-copy">
+                    <p class="eyebrow">Hoy celebramos a un verdadero Hashira</p>
+                    <h1 id="main-title">Feliz cumple,<span>hermano.</span></h1>
+                    <p class="hero-lead">No compartimos apellido, pero sí un montón de batallas, risas e historias. <strong>Para mí eres el hermano que la vida me dejó elegir.</strong></p>
+                    <button class="cta" id="open-letter" type="button">
+                        <span>Abrir tu mensaje</span>
+                        <span class="cta-arrow" aria-hidden="true">→</span>
+                    </button>
+                </div>
+
+                <div class="hero-art" aria-hidden="true">
+                    <div class="circle"></div>
+                    <div class="sun"></div>
+                    <div class="sword">
+                        <span class="blade"></span>
+                        <span class="guard"></span>
+                        <span class="grip"></span>
+                        <span class="pommel"></span>
+                    </div>
+                    <span class="kanji">絆</span>
+                    <span class="art-caption">La fuerza de un vínculo · Kimetsu no Yaiba</span>
+                    <i class="petal petal-one"></i>
+                    <i class="petal petal-two"></i>
+                    <i class="petal petal-three"></i>
+                    <i class="petal petal-four"></i>
+                </div>
+            </section>
+
+            <section class="friendship" aria-labelledby="friendship-title">
+                <div>
+                    <p class="section-label">Un vínculo más fuerte que cualquier batalla</p>
+                    <h2 id="friendship-title">Los hermanos no siempre nacen.<br><span>A veces se encuentran.</span></h2>
+                    <p>Y yo tuve la suerte de encontrar en ti a alguien con quien puedo contar, reírme por cualquier tontería y ser yo mismo. Pase lo que pase, aquí tienes a tu compañero de equipo.</p>
+                </div>
+                <blockquote class="quote">
+                    La verdadera fuerza no está en pelear solo: está en seguir adelante sabiendo que alguien siempre tendrá tu espalda.
+                    <cite>Regla no escrita de nuestra hermandad</cite>
+                </blockquote>
+            </section>
+        </main>
+
+        <footer>
+            <span>Hecho con cariño para alguien irremplazable.</span>
+            <span><span class="footer-mark">✦</span> Que este nuevo año sea legendario.</span>
+        </footer>
+    </div>
+
+    <div class="modal" id="birthday-modal" hidden>
+        <section class="letter" role="dialog" aria-modal="true" aria-labelledby="letter-title" aria-describedby="letter-copy">
+            <button class="seal" id="close-letter" type="button" aria-label="Cerrar mensaje">×</button>
+            <p class="eyebrow">Mensaje de tu compañero de aventuras</p>
+            <h2 id="letter-title">Para mi hermano elegido</h2>
+            <div class="letter-copy" id="letter-copy">
+                <p>¡Feliz cumpleaños, hermano! Hoy celebro que existas y, sobre todo, la suerte de tenerte en mi vida.</p>
+                <p>Gracias por estar en las buenas, en las malas y hasta en las misiones que empiezan con un “confía en mí”. Eres de esas personas que hacen que cualquier camino pese menos y cualquier victoria se disfrute el doble.</p>
+                <p>Te deseo un año lleno de aventuras, sueños cumplidos, mucha felicidad y momentos tan épicos que merezcan su propio opening. <strong>Nunca olvides lo mucho que te quiero y que siempre puedes contar conmigo.</strong></p>
+                <p>Que sigas creciendo más fuerte, pero sin perder ese gran corazón tuyo. ¡A por otro año increíble, Hashira!</p>
+            </div>
+            <p class="letter-signature">Con todo mi cariño, tu hermano de otra familia.</p>
+        </section>
+    </div>
+
+    <script>
+        const modal = document.getElementById("birthday-modal");
+        const openButton = document.getElementById("open-letter");
+        const closeButton = document.getElementById("close-letter");
+
+        function celebrate() {
+            const colors = ["#ee5b42", "#f4c16e", "#a4c5a5", "#f5ead7", "#c984a1"];
+
+            for (let index = 0; index < 55; index += 1) {
+                const piece = document.createElement("span");
+                piece.className = "confetti";
+                piece.style.left = `${Math.random() * 100}vw`;
+                piece.style.backgroundColor = colors[index % colors.length];
+                piece.style.setProperty("--fall-duration", `${2.2 + Math.random() * 2.1}s`);
+                piece.style.setProperty("--sway", `${Math.random() * 150 - 75}px`);
+                piece.style.animationDelay = `${Math.random() * 0.65}s`;
+                document.body.appendChild(piece);
+                piece.addEventListener("animationend", () => piece.remove(), { once: true });
+            }
+        }
+
+        function openLetter() {
+            modal.hidden = false;
+            requestAnimationFrame(() => modal.classList.add("is-open"));
+            closeButton.focus();
+            celebrate();
+        }
+
+        function closeLetter() {
+            modal.classList.remove("is-open");
+            window.setTimeout(() => {
+                modal.hidden = true;
+                openButton.focus();
+            }, 250);
+        }
+
+        openButton.addEventListener("click", openLetter);
+        closeButton.addEventListener("click", closeLetter);
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) closeLetter();
+        });
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && !modal.hidden) closeLetter();
+        });
+    </script>
+</body>
+</html>
